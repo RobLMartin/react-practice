@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Person.css';
+import WithClass from '../../../hoc/WithClass'
 
 class Person extends Component {
     constructor(props) {
@@ -17,18 +18,18 @@ class Person extends Component {
     }
     render (){
         console.log('[Person.js] Inside Render');
-        // return (    
-        //     <div className={styles.Person}>
-        //         <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
-        //         <p>{this.props.children}</p>
-        //         <input type='text' onChange={this.props.changed} value={this.props.name}/>
-        //     </div>
-        // )
-        return [
-            <p key="1" onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>,
-            <p key="2">{this.props.children}</p>,
-            <input key="3" type='text' onChange={this.props.changed} value={this.props.name}/>
-        ]
+        return (    
+            <WithClass className={styles.Person}>
+                <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
+                <p>{this.props.children}</p>
+                <input type='text' onChange={this.props.changed} value={this.props.name}/>
+            </WithClass>
+        )
+        // return [
+        //     <p key="1" onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>,
+        //     <p key="2">{this.props.children}</p>,
+        //     <input key="3" type='text' onChange={this.props.changed} value={this.props.name}/>
+        // ]
     }
 } 
 
